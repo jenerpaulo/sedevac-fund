@@ -9,10 +9,10 @@ export function HeroSection() {
 
   // Replace video URLs here when you have videos for other languages
   const videoMap: Record<string, string> = {
-    en: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with English when ready
+    en: "/videos/videoenglish.mp4", // English video
     pt: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4",
-    es: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with Spanish when ready
-    fr: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with French when ready
+    es: "/videos/videospanish.mp4", // Spanish video
+    fr: "/videos/videofrench.mp4", // French video
   }
 
   const currentLanguage = useLanguage().language
