@@ -13,7 +13,11 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Hero
+    heroTagline: "Global Digital Presence",
+    heroDescription:
+      "As our communities grow, so does the need for a strong and faithful digital presence. We pray this effort may move your heart and soul, allowing us to do more for those in need and to bring light in this time of apostasy.",
     tagline: "The Only Authentic Catholic Position for a Time of Apostasy.",
+    domRodrigoTagline: "This project is led by Dom Rodrigo da Silva",
     donateNow: "Donate Now",
 
     // Digital Structure
@@ -46,11 +50,13 @@ const translations: Record<Language, Record<string, string>> = {
       "This mission can only move forward through the generosity of the faithful. You may support us with a one-time gift today, and if you wish, become a monthly supporter in the future. Every contribution—large or small—directly builds and sustains this digital apostolate.",
 
     setupCosts: "Setup Costs",
+    phase1SetupCosts: "Phase 1: Setup Costs",
     setupCostsDesc:
       "Full foundational infrastructure for our Website, E-commerce system, and Faith Answers AI Portal — covering custom development, hosting architecture, payment processing setup, user management, security layers, email systems, content delivery, and all essential tools required to launch our digital apostolate.",
     maintenanceCosts: "Maintenance Costs",
     maintenanceDesc: "Content creation, social media, support, operations",
     maintenanceNote: "Maintenance contributions will begin once the infrastructure is launched.",
+    goalLabel: "Goal",
 
     progressTitle: "Progress Toward Our Goal",
     raised: "Raised",
@@ -89,7 +95,11 @@ const translations: Record<Language, Record<string, string>> = {
   },
   pt: {
     // Hero
+    heroTagline: "Presença Digital Global",
+    heroDescription:
+      "Conforme nossas comunidades crescem, cresce também a necessidade de uma forte e fiel presença digital. Oramos para que esse esforço toque seu coração e alma, permitindo-nos fazer mais pelos necessitados e trazer luz em tempos de apostasia.",
     tagline: "A Única Posição Católica Autêntica para um Tempo de Apostasia.",
+    domRodrigoTagline: "Este projeto é liderado por Dom Rodrigo da Silva",
     donateNow: "Doe Agora",
 
     // Digital Structure
@@ -122,11 +132,13 @@ const translations: Record<Language, Record<string, string>> = {
       "Esta missão só pode avançar através da generosidade dos fiéis. Você pode nos apoiar com uma doação única hoje e, se desejar, tornar-se um apoiador mensal no futuro. Cada contribuição—grande ou pequena—constrói e sustenta diretamente este apostolado digital.",
 
     setupCosts: "Custos de Instalação",
+    phase1SetupCosts: "Fase 1: Custos de Instalação",
     setupCostsDesc:
       "Infraestrutura completa para nosso Website, sistema de E-commerce e Portal de IA Respostas da Fé — incluindo desenvolvimento personalizado, arquitetura de hospedagem, configuração de processamento de pagamentos, gerenciamento de usuários, camadas de segurança, sistemas de e-mail, entrega de conteúdo e todas as ferramentas essenciais para lançar nosso apostolado digital.",
     maintenanceCosts: "Custos de Manutenção",
     maintenanceDesc: "Criação de conteúdo, redes sociais, suporte, operações",
     maintenanceNote: "As contribuições de manutenção começarão assim que a infraestrutura for lançada.",
+    goalLabel: "Meta",
 
     progressTitle: "Progresso em Direção à Nossa Meta",
     raised: "Arrecadado",
@@ -154,7 +166,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     faq2Question: "Qual é o propósito desta iniciativa?",
     faq2Answer:
-      "Acreditamos que apenas a posição católica tradicional — especialmente a compreensão sedevacantista — proporciona clareza e paz na crise atual dentro da Igreja. Nossas comunidades precisam urgentemente de uma forte presença digital para unificar os fiéis, proteger nosso clero de ataques injustos e oferecer orientação àqueles ainda confusos pelos erros modernistas. Este projeto pretende ser tanto um escudo quanto uma luz.",
+      "Acreditamos que apenas a posição católica tradicional — especialmente a compreensão sedevacantista — proporciona clareza e paz na crise atual dentro da Igreja. Nossas comunidades precisam urgentemente de uma forte presença digital para unificar os fiéis, proteger nosso clergé de ataques injustos e oferecer orientação àqueles ainda confusos pelos erros modernistas. Este projeto pretende ser tanto um escudo quanto uma luz.",
 
     faq3Question: "Como posso verificar a legitimidade deste projeto?",
     faq3Answer:
@@ -165,13 +177,17 @@ const translations: Record<Language, Record<string, string>> = {
   },
   es: {
     // Hero
+    heroTagline: "Presencia Digital Global",
+    heroDescription:
+      "Conforme nuestras comunidades crecen, también crece la necesidad de una fuerte y fiel presencia digital. Oramos para que este esfuerzo toque su corazón y alma, permitiéndonos hacer más por los necesitados y traer luz en este tiempo de apostasía.",
     tagline: "La Única Posición Católica Auténtica para un Tiempo de Apostasía.",
+    domRodrigoTagline: "Este proyecto es liderado por Dom Rodrigo da Silva",
     donateNow: "Donar Ahora",
 
     // Digital Structure
     digitalStructureTitle: "Nuestra Futura Estructura Digital",
     digitalStructureIntro:
-      "Estamos construyendo una presencia digital moderna y unificada para fortalecer nuestras comunidades en todo el mundo. Cada componente será construido con cuidado, utilizando tecnología moderna para servir a la Verdadera Fe y apoyar a nuestro clero y fieles.",
+      "Estamos construyendo una presencia digital moderna y unificada para fortalecer nuestras comunidades en todo el mundo. Cada componente será construido con cuidado, utilizando tecnología moderna para servir a la Verdadera Fe y apoyar a nuestro clergé y fieles.",
 
     websiteTitle: "Sitio Web",
     websiteDesc1: "Plataforma personalizada construida con tecnología moderna",
@@ -198,11 +214,13 @@ const translations: Record<Language, Record<string, string>> = {
       "Esta misión solo puede avanzar gracias a la generosidad de los fieles. Puede apoyarnos con una donación única hoy y, si lo desea, convertirse en un donante mensual en el futuro. Cada contribución—grande o pequeña—construye y sostiene directamente este apostolado digital.",
 
     setupCosts: "Costos de Instalación",
+    phase1SetupCosts: "Fase 1: Costos de Instalación",
     setupCostsDesc:
       "Infraestructura completa para nuestro Sitio Web, sistema de E-commerce y Portal de IA Respuestas de Fe — incluyendo desarrollo personalizado, arquitectura de alojamiento, configuración de procesamiento de pagos, gestión de usuarios, capas de seguridad, sistemas de correo electrónico, entrega de contenido y todas las herramientas esenciales para lanzar nuestro apostolado digital.",
     maintenanceCosts: "Costos de Mantenimiento",
     maintenanceDesc: "Creación de contenido, redes sociales, soporte, operaciones",
     maintenanceNote: "Las contribuciones de mantenimiento comenzarán una vez que se lance la infraestructura.",
+    goalLabel: "Meta",
 
     progressTitle: "Progreso Hacia Nuestra Meta",
     raised: "Recaudado",
@@ -241,7 +259,11 @@ const translations: Record<Language, Record<string, string>> = {
   },
   fr: {
     // Hero
+    heroTagline: "Présence Numérique Mondiale",
+    heroDescription:
+      "Alors que nos communautés grandissent, le besoin d'une présence numérique forte et fidèle grandit également. Nous prions pour que cet effort touche votre cœur et votre âme, nous permettant d'en faire plus pour ceux dans le besoin et d'apporter la lumière en ce temps d'apostasie.",
     tagline: "La Seule Position Catholique Authentique pour un Temps d'Apostasie.",
+    domRodrigoTagline: "Ce projet est dirigé par Dom Rodrigo da Silva",
     donateNow: "Faire un Don",
 
     // Digital Structure
@@ -273,14 +295,16 @@ const translations: Record<Language, Record<string, string>> = {
     // Funding
     fundingTitle: "Aidez-nous à Construire Cette Mission",
     fundingIntro:
-      "Cette mission ne peut avancer que grâce à la générosité des fidèles. Vous pouvez nous soutenir avec un don unique aujourd'hui et, si vous le souhaitez, devenir un donateur mensuel à l'avenir. Chaque contribution—grande ou petite—construit et soutient directement cet apostolat numérique.",
+      "Cette mission ne peut avancer que grâce à la générosité des fidèles. Vous pouvez nous soutenir avec un don unique aujourd'hui et, si vous le souhaitez, devenir un donateur mensuel à l'avenir. Chaque contribution—grande ou petite—construit et soutient directamente cet apostolat numérique.",
 
     setupCosts: "Coûts d'Installation",
+    phase1SetupCosts: "Phase 1: Coûts d'Installation",
     setupCostsDesc:
       "Infrastructure complète pour notre Site Web, système E-commerce et Portail IA Réponses de Foi — incluant le développement personnalisé, l'architecture d'hébergement, la configuration du traitement des paiements, la gestion des utilisateurs, les couches de sécurité, les systèmes de messagerie, la livraison de contenu et tous les outils essentiels pour lancer notre apostolat numérique.",
     maintenanceCosts: "Coûts de Maintenance",
     maintenanceDesc: "Création de contenu, réseaux sociaux, support, opérations",
     maintenanceNote: "Les contributions de maintenance commenceront une fois l'infrastructure lancée.",
+    goalLabel: "Objectif",
 
     progressTitle: "Progression Vers Notre Objectif",
     raised: "Collecté",

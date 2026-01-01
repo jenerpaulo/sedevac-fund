@@ -11,8 +11,8 @@ export default function Home() {
     <LanguageProvider>
       <main className="min-h-screen bg-background">
         <HeroSection />
-        <DigitalStructureSection />
         <FundingSection />
+        <DigitalStructureSection />
         <FaqSection />
         <Footer />
         <FloatingLanguageSelector />

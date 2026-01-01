@@ -66,39 +66,40 @@ export function FundingSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Column - Setup Costs Card and Progress Bar Card */}
           <div className="space-y-8 animate-fade-in-up">
-            <Card className="bg-white/10 backdrop-blur-sm border-gold-600/30">
+            <Card className="bg-cream-100 border-0">
               <CardHeader>
-                <CardTitle className="text-gold-400 flex items-center gap-3">
+                <CardTitle className="text-burgundy-800 flex items-center gap-3">
                   <DollarSign className="h-6 w-6" />
-                  {t("setupCosts")}
+                  {t("phase1SetupCosts")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-cream-100/80 mb-4">{t("setupCostsDesc")}</p>
-                <p className="text-3xl font-bold text-gold-300">$4,600</p>
+                <p className="text-stone-700 mb-4">{t("setupCostsDesc")}</p>
+                <div className="text-stone-700 text-sm font-medium mb-1">{t("goalLabel")}:</div>
+                <p className="text-3xl font-bold text-burgundy-800">$4,600</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/10 backdrop-blur-sm border-gold-600/30">
+            <Card className="bg-cream-100 border-0">
               <CardHeader>
-                <CardTitle className="text-gold-400 flex items-center gap-3">
+                <CardTitle className="text-burgundy-800 flex items-center gap-3">
                   <TrendingUp className="h-6 w-6" />
                   {t("progressTitle")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-burgundy-900/50 rounded-full h-6 overflow-hidden border border-gold-600/30">
+                <div className="bg-cream-200 rounded-full h-6 overflow-hidden border border-burgundy-200">
                   <div
-                    className="h-full bg-gradient-to-r from-gold-600 to-gold-400 transition-all duration-1000 ease-out"
+                    className="h-full bg-gradient-to-r from-burgundy-700 to-burgundy-600 transition-all duration-1000 ease-out"
                     style={{ width: `${progressPercentage}%` }}
                   />
                 </div>
-                <div className="flex justify-between mt-3 text-cream-100/80">
+                <div className="flex justify-between mt-3 text-stone-700">
                   <span>
                     {t("raised")}: ${RAISED_USD.toLocaleString()} USD
                   </span>
                   <span>
-                    {t("goal")}: ${GOAL_USD.toLocaleString()} USD
+                    {t("goalLabel")}: ${GOAL_USD.toLocaleString()} USD
                   </span>
                 </div>
               </CardContent>
@@ -108,22 +109,22 @@ export function FundingSection() {
           {/* Right Column - Donation Form */}
           <div className="animate-fade-in-up">
             {!showCheckout ? (
-              <Card className="bg-white/10 backdrop-blur-sm border-gold-600/30">
+              <Card className="bg-cream-100 border-0">
                 <CardContent className="pt-6">
                   <Tabs
                     value={donationType}
                     onValueChange={(v) => handleDonationTypeChange(v as "one-time" | "monthly")}
                   >
-                    <TabsList className="grid w-full grid-cols-2 bg-burgundy-900/50 mb-8">
+                    <TabsList className="grid w-full grid-cols-2 bg-cream-200 mb-8">
                       <TabsTrigger
                         value="one-time"
-                        className="data-[state=active]:bg-gold-500 data-[state=active]:text-navy-950 data-[state=inactive]:text-white"
+                        className="data-[state=active]:bg-burgundy-700 data-[state=active]:text-white data-[state=inactive]:text-stone-700"
                       >
                         {t("oneTimeDonation")}
                       </TabsTrigger>
                       <TabsTrigger
                         value="monthly"
-                        className="data-[state=active]:bg-gold-500 data-[state=active]:text-navy-950 data-[state=inactive]:text-white"
+                        className="data-[state=active]:bg-burgundy-700 data-[state=active]:text-white data-[state=inactive]:text-stone-700"
                       >
                         {t("monthlyDonation")}
                       </TabsTrigger>
@@ -202,7 +203,7 @@ interface DonationFormProps {
   onProceed: () => void
   getFinalAmount: () => number
   isMonthly?: boolean
-  showCustomAmount?: boolean // New prop to control custom amount visibility
+  showCustomAmount?: boolean
 }
 
 function DonationForm({
@@ -218,13 +219,13 @@ function DonationForm({
   onProceed,
   getFinalAmount,
   isMonthly,
-  showCustomAmount = true, // Default to true for backwards compatibility
+  showCustomAmount = true,
 }: DonationFormProps) {
   return (
     <>
       {/* Currency Selector */}
       <div>
-        <label className="block text-sm text-gold-300 mb-2">{t("currency")}</label>
+        <label className="block text-sm text-burgundy-800 font-medium mb-2">{t("currency")}</label>
         <div className="flex gap-2">
           {(["usd", "eur", "brl"] as const).map((curr) => (
             <Button
@@ -233,8 +234,8 @@ function DonationForm({
               onClick={() => setCurrency(curr)}
               className={
                 currency === curr
-                  ? "bg-gold-500 text-navy-950 hover:bg-gold-400"
-                  : "border-gold-600/50 bg-white text-navy-950 hover:bg-cream-100"
+                  ? "bg-burgundy-700 text-white hover:bg-burgundy-800"
+                  : "border-burgundy-300 bg-white text-stone-700 hover:bg-cream-200"
               }
             >
               {curr.toUpperCase()}
@@ -245,7 +246,7 @@ function DonationForm({
 
       {/* Amount Selection */}
       <div>
-        <label className="block text-sm text-gold-300 mb-2">{t("selectAmount")}</label>
+        <label className="block text-sm text-burgundy-800 font-medium mb-2">{t("selectAmount")}</label>
         <div className={`grid ${amounts.length === 3 ? "grid-cols-3" : "grid-cols-5"} gap-2`}>
           {amounts.map((amount) => (
             <Button
@@ -257,8 +258,8 @@ function DonationForm({
               }}
               className={
                 selectedAmount === amount && !customAmount
-                  ? "bg-gold-500 text-navy-950 hover:bg-gold-400"
-                  : "border-gold-600/50 bg-white text-navy-950 hover:bg-cream-100"
+                  ? "bg-burgundy-700 text-white hover:bg-burgundy-800"
+                  : "border-burgundy-300 bg-white text-stone-700 hover:bg-cream-200"
               }
             >
               {currencySymbols[currency]}
@@ -270,9 +271,11 @@ function DonationForm({
 
       {showCustomAmount && (
         <div>
-          <label className="block text-sm text-gold-300 mb-2">{t("customAmount")}</label>
+          <label className="block text-sm text-burgundy-800 font-medium mb-2">{t("customAmount")}</label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-400">{currencySymbols[currency]}</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-burgundy-700">
+              {currencySymbols[currency]}
+            </span>
             <input
               type="number"
               value={customAmount}
@@ -281,7 +284,7 @@ function DonationForm({
                 setSelectedAmount(null)
               }}
               placeholder="0"
-              className="w-full pl-10 pr-4 py-3 bg-burgundy-900/50 border border-gold-600/30 rounded-md text-white placeholder-cream-100/50 focus:outline-none focus:border-gold-500"
+              className="w-full pl-10 pr-4 py-3 bg-cream-200 border border-burgundy-300 rounded-md text-stone-700 placeholder-stone-400 focus:outline-none focus:border-burgundy-700"
             />
           </div>
         </div>
@@ -291,7 +294,7 @@ function DonationForm({
       <Button
         onClick={onProceed}
         disabled={getFinalAmount() <= 0}
-        className="w-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold py-6 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-burgundy-700 hover:bg-burgundy-800 text-white font-semibold py-6 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {t("proceedToCheckout")} - {currencySymbols[currency]}
         {getFinalAmount()}
