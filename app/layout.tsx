@@ -7,11 +7,11 @@ import "./globals.css"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
-// <CHANGE> Updated metadata for CatholicVacante
+// Updated metadata for Sedevacante
 export const metadata: Metadata = {
-  title: "CatholicVacante - Funding the True Faith",
+  title: "Sedevacante - Defending Catholicism",
   description:
-    "Support the CatholicVacante mission to build a modern digital presence for traditional Catholic communities worldwide.",
+    "Support this initiative to bring truth to Catholic communities worldwide through a modern digital presence.",
   generator: "v0.app",
   icons: {
     icon: [

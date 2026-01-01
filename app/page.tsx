@@ -6,6 +6,7 @@ import { FaqSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
 import { LanguageProvider } from "@/components/language-context"
 import { FloatingLanguageSelector } from "@/components/floating-language-selector"
+import { CtaSection } from "@/components/cta-section"
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <div id="faq">
           <FaqSection />
         </div>
+        <CtaSection />
         <Footer />
         <FloatingLanguageSelector />
       </main>

@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
 export type Language = "en" | "pt" | "es" | "fr"
@@ -80,23 +82,19 @@ const translations: Record<Language, Record<string, string>> = {
     backToPaymentMethods: "← Back to payment methods",
     paymentConfirmed: "Payment Confirmed!",
     thankYouDonation: "Thank you for your generous donation to CatholicVacante.",
+    donateForPhase1: "Donate for Phase 1",
 
     // FAQ
     faqTitle: "Frequently Asked Questions",
     faq1Question: "Who is leading this project?",
     faq1Answer:
       "This project is overseen by Dom Rodrigo da Silva, under his spiritual direction and with full authorization.",
-
-    faq2Question: "What is the purpose of this initiative?",
+    faq2Question: "Why is this project important?",
     faq2Answer:
       "We believe that only the traditional Catholic position — especially the sedevacante understanding — provides clarity and peace in today's crisis within the Church. Our communities urgently need a strong digital presence to unify the faithful, protect our clergy from unjust attacks, and offer guidance to those still confused by modernist errors. This project is meant to be both a shield and a light.",
-
-    faq3Question: "How can I verify the legitimacy of this project?",
+    faq3Question: "How can I get help?",
     faq3Answer:
       "For help in English:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nFor help in Spanish or Portuguese:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
-
-    // Footer
-    copyright: "©Sedevacante — All Rights Reserved",
   },
   pt: {
     // Hero
@@ -167,23 +165,19 @@ const translations: Record<Language, Record<string, string>> = {
     backToPaymentMethods: "← Voltar aos métodos de pagamento",
     paymentConfirmed: "Pagamento Confirmado!",
     thankYouDonation: "Obrigado pela sua generosa doação ao CatholicVacante.",
+    donateForPhase1: "Doe para a Fase 1",
 
     // FAQ
     faqTitle: "Perguntas Frequentes",
     faq1Question: "Quem está liderando este projeto?",
     faq1Answer:
-      "Este projeto é supervisionado por Dom Rodrigo da Silva, sob sua direção espiritual e com total autorização.",
-
-    faq2Question: "Qual é o propósito desta iniciativa?",
+      "Este projeto é supervisionado por Dom Rodrigo da Silva, sob sua direção espiritual e com autorização total.",
+    faq2Question: "Por que este projeto é importante?",
     faq2Answer:
-      "Acreditamos que apenas a posição católica tradicional — especialmente a compreensão sedevacantista — proporciona clareza e paz na crise atual dentro da Igreja. Nossas comunidades precisam urgentemente de uma forte presença digital para unificar os fiéis, proteger nosso clergé de ataques injustos e oferecer orientação àqueles ainda confusos pelos erros modernistas. Este projeto pretende ser tanto um escudo quanto uma luz.",
-
-    faq3Question: "Como posso verificar a legitimidade deste projeto?",
+      "Acreditamos que apenas a posição católica tradicional — especialmente o entendimento sedevacantista — oferece clareza e paz na crise atual da Igreja. Nossas comunidades precisam urgentemente de uma forte presença digital para unificar os fiéis, proteger nosso clergé de ataques injustos e oferecer orientação aos ainda confusos com erros modernistas. Este projeto visa ser tanto um escudo quanto uma luz.",
+    faq3Question: "Como posso obter ajuda?",
     faq3Answer:
       "Para ajuda em inglês:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPara ajuda em espanhol ou português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
-
-    // Footer
-    copyright: "©Sedevacante — Todos os Direitos Reservados",
   },
   es: {
     // Hero
@@ -231,7 +225,7 @@ const translations: Record<Language, Record<string, string>> = {
     setupCosts: "Costos de Instalación",
     phase1SetupCosts: "Fase 1: Costos de Instalación",
     setupCostsDesc:
-      "Infraestructura completa para nuestro Sitio Web, sistema de E-commerce y Portal de IA Respuestas de Fe — incluyendo desarrollo personalizado, arquitectura de alojamiento, configuración de procesamiento de pagos, gestión de usuarios, capas de seguridad, sistemas de correo electrónico, entrega de contenido y todas las herramientas esenciales para lanzar nuestro apostolado digital.",
+      "Infraestructura completa para nuestro Sitio Web, sistema de E-commerce y Portal de IA Respuestas de Fe — incluyendo desarrollo personalizado, arquitectura de alojamiento, configuración de procesamiento de pagamentos, gestión de usuarios, capas de seguridad, sistemas de correo electrónico, entrega de contenido y todas las herramientas esenciales para lanzar nuestro apostolado digital.",
     maintenanceCosts: "Costos de Mantenimiento",
     maintenanceDesc: "Creación de contenido, redes sociales, soporte, operaciones",
     maintenanceNote: "Las contribuciones de mantenimiento comenzarán una vez que se lance la infraestructura.",
@@ -254,37 +248,33 @@ const translations: Record<Language, Record<string, string>> = {
     backToPaymentMethods: "← Volver a métodos de pago",
     paymentConfirmed: "¡Pago Confirmado!",
     thankYouDonation: "Gracias por su generosa donación a CatholicVacante.",
+    donateForPhase1: "Doe para la Fase 1",
 
     // FAQ
     faqTitle: "Preguntas Frecuentes",
-    faq1Question: "¿Quién lidera este proyecto?",
+    faq1Question: "¿Quién está liderando este proyecto?",
     faq1Answer:
-      "Este proyecto es supervisado por Dom Rodrigo da Silva, bajo su dirección espiritual y con plena autorización.",
-
-    faq2Question: "¿Cuál es el propósito de esta iniciativa?",
+      "Este proyecto está supervisado por Dom Rodrigo da Silva, bajo su dirección espiritual y con autorización total.",
+    faq2Question: "¿Por qué es importante este proyecto?",
     faq2Answer:
-      "Creemos que solo la posición católica tradicional — especialmente la comprensión sedevacantista — proporciona claridad y paz en la crisis actual dentro de la Iglesia. Nuestras comunidades necesitan urgentemente de una fuerte presencia digital para unificar a los fieles, proteger a nuestro clero de ataques injustos y ofrecer orientación a aquellos todavía confusos por los errores modernistas. Este proyecto pretende ser tanto un escudo como una luz.",
-
-    faq3Question: "¿Cómo puedo verificar la legitimidad de este proyecto?",
+      "Creemos que solo la posición católica tradicional — especialmente el entendimiento sedevacantista — proporciona clareza y paz en la crisis actual de la Iglesia. Nuestras comunidades necesitan urgentemente una fuerte presencia digital para unificar a los fieles, proteger a nuestro clergé de ataques injustos y ofrecer orientación a aquellos aún confundidos por los errores modernistas. Este proyecto es diseñado para ser tanto un escudo como una luz.",
+    faq3Question: "¿Cómo puedo obtener ayuda?",
     faq3Answer:
-      "Para ayuda en inglés:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPara ayuda en español o português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
-
-    // Footer
-    copyright: "©Sedevacante — Todos los Dereitos Reservados",
+      "Para ayuda en inglés:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPara ayuda en español o portugués:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
   },
   fr: {
     // Hero
     heroTagline: "Présence Numérique Mondiale",
     heroDescription:
-      "Alors que nos communautés grandissent, le besoin d'une présence numérique forte et fidèle grandit également. Nous prions pour que cet effort touche votre cœur et votre âme, nous permettant d'en faire plus pour ceux dans le besoin et d'apporter la lumière en ce temps d'apostasie.",
-    tagline: "La Seule Position Catholique Authentique pour un Temps d'Apostasie.",
+      "Tout en nous développant, la nécessité d'une présence numérique forte et fidèle augmente. Nous prions que cet effort touche votre cœur et votre âme, nous permettant de faire plus pour ceux qui en ont besoin et de briller dans cette époque d'apostasie.",
+    tagline: "La Position Catholique Authentique et Unique pour une Époque d'Apostasie.",
     domRodrigoTagline: "Ce projet est dirigé par Dom Rodrigo da Silva",
-    donateNow: "Faire un Don",
+    donateNow: "Donnez Maintenant",
 
     // Digital Structure
-    digitalStructureTitle: "Notre Future Structure Numérique",
+    digitalStructureTitle: "Notre Structure Numérique Future",
     digitalStructureIntro:
-      "Nous construisons une présence numérique moderne et unifiée pour renforcer nos communautés dans le monde entier. Chaque composant sera construit avec soin, en utilisant une technologie moderne pour servir la Vraie Foi et soutenir notre clergé et nos fidèles.",
+      "Nous construisons une présence numérique moderne et unifiée pour renforcer nos communautés à travers le monde. Chaque composant sera construit avec soin, en utilisant des technologies modernes pour servir la Véritable Foi et soutenir notre clergé et nos fidèles.",
     websiteStatus: "Statut: en cours",
     websiteViewLink: "Voir ici",
     storeStatus: "Statut: en cours",
@@ -293,10 +283,10 @@ const translations: Record<Language, Record<string, string>> = {
     socialStatus: "Statut: prévu",
 
     websiteTitle: "Site Web",
-    websiteDesc1: "Plateforme personnalisée construite avec une technologie moderne",
+    websiteDesc1: "Plateforme personnalisée construite avec des technologies modernes",
     websiteDesc2:
       "Environnement riche en fonctionnalités pour partager des mises à jour, des événements, des sermons et des ressources catholiques",
-    websiteDesc3: "Conçu pour enrichir la foi et connecter les communautés du monde entier",
+    websiteDesc3: "Conçu pour enrichir la foi et connecter les communautés à travers le monde",
 
     storeTitle: "Boutique",
     storeDesc1: "Boutique en ligne complète avec des capacités d'administration complètes",
@@ -304,26 +294,26 @@ const translations: Record<Language, Record<string, string>> = {
     storeDesc3:
       "Checkout moderne avec des produits connexes, des offres supplémentaires et des intégrations de livraison",
 
-    aiChatTitle: "Chat IA – Réponses de Foi",
-    aiChatDesc1: "Portail hub avec une base de connaissances catholiques traditionnelles curatées",
-    aiChatDesc2: "Les utilisateurs peuvent interagir avec l'IA pour comprendre le catholicisme traditionnel",
+    aiChatTitle: "Chat IA – Réponses de la Foi",
+    aiChatDesc1: "Portail central avec une base de connaissances catholiques traditionnelles curée",
+    aiChatDesc2: "Les utilisateurs peuvent interagir avec l'IA pour comprendre le catholisme traditionnel",
     aiChatDesc3: "Clarifie la crise dans l'Église et offre des conseils enracinés dans la Foi",
 
     socialTitle: "Présence sur les Réseaux Sociaux",
     socialDesc1: "Publication cohérente sur toutes les plateformes",
-    socialDesc2: "Évangélisation, mises à jour et portée mondiale",
+    socialDesc2: "Évangélisation, mises à jour et diffusion mondiale",
 
     // Funding
     fundingTitle: "Aidez-nous à Construire Cette Mission",
     fundingIntro:
-      "Cette mission ne peut avancer que grâce à la générosité des fidèles. Vous pouvez nous soutenir avec un don unique aujourd'hui et, si vous le souhaitez, devenir un donateur mensuel à l'avenir. Chaque contribution—grande ou petite—construit et soutient directamente cet apostolat numérique.",
+      "Cette mission ne peut avancer que grâce à la générosité des fidèles. Vous pouvez nous soutenir avec un don unique aujourd'hui et, si vous le souhaitez, devenir un souteneur mensuel à l'avenir. Chaque contribution—grande ou petite—construit et soutient directement cet apostolat numérique.",
     setupCosts: "Coûts d'Installation",
     phase1SetupCosts: "Phase 1: Coûts d'Installation",
     setupCostsDesc:
-      "Infrastructure complète pour notre Site Web, système E-commerce et Portail IA Réponses de Foi — incluant le développement personnalisé, l'architecture d'hébergement, la configuration du traitement des paiements, la gestion des utilisateurs, les couches de sécurité, les systèmes de messagerie, la livraison de contenu et tous les outils essentiels pour lancer notre apostolat numérique.",
+      "Infrastructure complète pour notre Site Web, système de commerce électronique et Portail IA Réponses de la Foi — couvrant le développement personnalisé, l'architecture d'hébergement, la configuration du traitement des paiements, la gestion des utilisateurs, les couches de sécurité, les systèmes de messagerie électronique, la livraison de contenu et toutes les outils essentiels nécessaires pour lancer notre apostolat numérique.",
     maintenanceCosts: "Coûts de Maintenance",
-    maintenanceDesc: "Création de contenu, réseaux sociaux, support, opérations",
-    maintenanceNote: "Les contributions de maintenance commenceront une fois l'infrastructure lancée.",
+    maintenanceDesc: "Création de contenu, réseaux sociaux, soutien, opérations",
+    maintenanceNote: "Les contributions de maintenance commenceront une fois que l'infrastructure sera lancée.",
     goalLabel: "Objectif",
 
     progressTitle: "Progression Vers Notre Objectif",
@@ -331,66 +321,59 @@ const translations: Record<Language, Record<string, string>> = {
     goal: "Objectif",
 
     oneTimeDonation: "Don Unique",
-    monthlyDonation: "Donateur Mensuel",
-    selectAmount: "Sélectionner le Montant",
-    customAmount: "Montant Personnalisé",
+    monthlyDonation: "Souteneur Mensuel",
+    selectAmount: "Sélectionnez le Montant",
+    customAmount: "Montant Personalisé",
     currency: "Devise",
-    proceedToCheckout: "Procéder au Checkout",
+    proceedToCheckout: "Passer à la Caisse",
     backToOptions: "← Retour aux options",
-    choosePaymentMethod: "Choisir le Mode de Paiement",
+    choosePaymentMethod: "Choisissez la Méthode de Paiement",
     selectPaymentMethod: "Sélectionnez comment vous souhaitez faire votre don de",
     creditCard: "Carte de Crédit",
-    backToPaymentMethods: "← Retour aux modes de paiement",
+    backToPaymentMethods: "← Retour aux méthodes de paiement",
     paymentConfirmed: "Paiement Confirmé!",
-    thankYouDonation: "Merci pour votre généreuse donation à CatholicVacante.",
+    thankYouDonation: "Merci pour votre généreux don à CatholicVacante.",
+    donateForPhase1: "Donnez pour la Phase 1",
 
     // FAQ
     faqTitle: "Questions Fréquentes",
     faq1Question: "Qui dirige ce projet?",
     faq1Answer:
-      "Ce projet est supervisé par Dom Rodrigo da Silva, sous sa direction spirituelle et avec pleine autorisation.",
-
-    faq2Question: "Quel est le but de cette initiative?",
+      "Ce projet est supervisé par Dom Rodrigo da Silva, sous sa direction spirituelle et avec une autorisation totale.",
+    faq2Question: "Pourquoi ce projet est-il important?",
     faq2Answer:
-      "Nous croyons que seule la position catholique traditionnelle — en particulier la compréhension sédévacantiste — apporte clarté et paix dans la crise actuelle au sein de l'Église. Nos communautés ont un besoin urgent d'une forte présence numérique pour unifier les fidèles, protéger notre clergé des attaques injustes et offrir des conseils à ceux qui sont encore confus par les erreurs modernistes. Ce projet se veut à la fois un bouclier et une lumière.",
-
-    faq3Question: "Comment puis-je vérifier la légitimité de ce projet?",
+      "Nous croyons que seule la position catholique traditionnelle — surtout l'entendement sedevacantiste — offre clarté et paix dans la crise actuelle de l'Église. Nos communautés ont besoin urgent d'une présence numérique forte pour unifier les fidèles, protéger notre clergé des attaques injustes et offrir des conseils aux ceux qui sont encore confus par les erreurs modernistes. Ce projet est destiné à être à la fois un bouclier et une lumière.",
+    faq3Question: "Comment puis-je obtenir de l'aide?",
     faq3Answer:
-      "Pour de l'aide en anglais:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPour de l'aide en espagnol ou português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
-
-    // Footer
-    copyright: "©Sedevacante — Tous Droits Réservés",
+      "Pour l'aide en anglais:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPour l'aide en espagnol ou en portugais:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
   },
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType>({
+  language: "en",
+  setLanguage: () => {},
+  t: () => "",
+})
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export const useLanguage = () => useContext(LanguageContext)
+
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>("en")
-
-  useEffect(() => {
-    // Try to detect language from browser
-    const browserLang = navigator.language.toLowerCase()
-    if (browserLang.startsWith("pt")) {
-      setLanguage("pt")
-    } else if (browserLang.startsWith("es")) {
-      setLanguage("es")
-    } else if (browserLang.startsWith("fr")) {
-      setLanguage("fr")
-    }
-  }, [])
 
   const t = (key: string): string => {
     return translations[language][key] || key
   }
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
-}
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language")
+    if (storedLanguage && (storedLanguage as Language) in translations) {
+      setLanguage(storedLanguage as Language)
+    }
+  }, [])
 
-export function useLanguage() {
-  const context = useContext(LanguageContext)
-  if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider")
-  }
-  return context
+  useEffect(() => {
+    localStorage.setItem("language", language)
+  }, [language])
+
+  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
 }
