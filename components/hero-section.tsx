@@ -2,10 +2,13 @@
 
 import { useLanguage } from "./language-context"
 import { LanguageSelector } from "./language-selector"
-import { Globe } from "lucide-react"
+import { Globe, Play } from "lucide-react"
+import { useRef, useState } from "react"
 
 export function HeroSection() {
   const { t } = useLanguage()
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   // Replace video URLs here when you have videos for other languages
   const videoMap: Record<string, string> = {
@@ -17,6 +20,18 @@ export function HeroSection() {
 
   const currentLanguage = useLanguage().language
   const videoSrc = videoMap[currentLanguage] || videoMap.pt
+
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play()
+        setIsPlaying(true)
+      } else {
+        videoRef.current.pause()
+        setIsPlaying(false)
+      }
+    }
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
@@ -51,14 +66,22 @@ export function HeroSection() {
                 <div className="hidden md:block flex-1 border-t border-stone-400"></div>
               </div>
 
-              <div className="relative group">
+              <div className="relative group cursor-pointer" onClick={handlePlayClick}>
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10 group-hover:bg-black/20 transition-colors rounded-3xl pointer-events-auto">
+                    <Play className="w-16 h-16 text-white fill-white opacity-80 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                )}
                 <video
+                  ref={videoRef}
                   src={videoSrc}
                   className="relative aspect-video rounded-3xl shadow-2xl overflow-hidden w-full"
                   controls
                   controlsList="nodownload"
                   poster="/images/video-poster.jpg"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
                 >
                   Your browser does not support the video tag.
                 </video>
