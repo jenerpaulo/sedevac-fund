@@ -7,6 +7,17 @@ import { Globe } from "lucide-react"
 export function HeroSection() {
   const { t } = useLanguage()
 
+  // Replace video URLs here when you have videos for other languages
+  const videoMap: Record<string, string> = {
+    en: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with English when ready
+    pt: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4",
+    es: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with Spanish when ready
+    fr: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4", // Portuguese for now, replace with French when ready
+  }
+
+  const currentLanguage = useLanguage().language
+  const videoSrc = videoMap[currentLanguage] || videoMap.pt
+
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
       {/* Background watermark - subtle globe pattern at very low opacity */}
@@ -24,7 +35,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Language selector */}
-        <div className="absolute top-6 right-6 z-20">
+        <div className="absolute -top-20 right-6 z-20">
           <LanguageSelector />
         </div>
 
@@ -42,32 +53,15 @@ export function HeroSection() {
 
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-                <div className="relative aspect-video bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden">
-                  {/* Subtle globe watermark inside video container */}
-                  <div className="absolute inset-0 opacity-10 pointer-events-none">
-                    <svg viewBox="0 0 100 100" className="w-full h-full text-white">
-                      <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="0.8" />
-                      <path
-                        d="M 50 10 Q 70 30, 80 50 Q 70 70, 50 90"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="0.6"
-                      />
-                      <path
-                        d="M 50 10 Q 30 30, 20 50 Q 30 70, 50 90"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="0.6"
-                      />
-                      <circle cx="50" cy="50" r="3" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow relative z-10">
-                    <svg className="w-10 h-10 text-blue-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
+                <video
+                  src={videoSrc}
+                  className="relative aspect-video rounded-3xl shadow-2xl overflow-hidden w-full"
+                  controls
+                  controlsList="nodownload"
+                  poster="/images/video-poster.jpg"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>

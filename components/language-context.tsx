@@ -24,6 +24,12 @@ const translations: Record<Language, Record<string, string>> = {
     digitalStructureTitle: "Our Future Digital Structure",
     digitalStructureIntro:
       "We are building a modern, unified digital presence to strengthen our communities worldwide. Every component will be built with care, using modern technology to serve the True Faith and support our clergy and faithful.",
+    websiteStatus: "Status: in progress",
+    websiteViewLink: "View here",
+    storeStatus: "Status: in progress",
+    storeViewLink: "View here",
+    aiChatStatus: "Status: planned",
+    socialStatus: "Status: planned",
 
     websiteTitle: "Website",
     websiteDesc1: "Custom-made platform built with modern technology",
@@ -48,7 +54,6 @@ const translations: Record<Language, Record<string, string>> = {
     fundingTitle: "Help Us Build This Mission",
     fundingIntro:
       "This mission can only move forward through the generosity of the faithful. You may support us with a one-time gift today, and if you wish, become a monthly supporter in the future. Every contribution—large or small—directly builds and sustains this digital apostolate.",
-
     setupCosts: "Setup Costs",
     phase1SetupCosts: "Phase 1: Setup Costs",
     setupCostsDesc:
@@ -106,6 +111,12 @@ const translations: Record<Language, Record<string, string>> = {
     digitalStructureTitle: "Nossa Futura Estrutura Digital",
     digitalStructureIntro:
       "Estamos construindo uma presença digital moderna e unificada para fortalecer nossas comunidades em todo o mundo. Cada componente será construído com cuidado, usando tecnologia moderna para servir a Verdadeira Fé e apoiar nosso clero e fiéis.",
+    websiteStatus: "Status: em progresso",
+    websiteViewLink: "Ver aqui",
+    storeStatus: "Status: em progresso",
+    storeViewLink: "Ver aqui",
+    aiChatStatus: "Status: planejado",
+    socialStatus: "Status: planejado",
 
     websiteTitle: "Website",
     websiteDesc1: "Plataforma personalizada construída com tecnologia moderna",
@@ -130,7 +141,6 @@ const translations: Record<Language, Record<string, string>> = {
     fundingTitle: "Ajude-nos a Construir Esta Missão",
     fundingIntro:
       "Esta missão só pode avançar através da generosidade dos fiéis. Você pode nos apoiar com uma doação única hoje e, se desejar, tornar-se um apoiador mensal no futuro. Cada contribuição—grande ou pequena—constrói e sustenta diretamente este apostolado digital.",
-
     setupCosts: "Custos de Instalação",
     phase1SetupCosts: "Fase 1: Custos de Instalação",
     setupCostsDesc:
@@ -188,6 +198,12 @@ const translations: Record<Language, Record<string, string>> = {
     digitalStructureTitle: "Nuestra Futura Estructura Digital",
     digitalStructureIntro:
       "Estamos construyendo una presencia digital moderna y unificada para fortalecer nuestras comunidades en todo el mundo. Cada componente será construido con cuidado, utilizando tecnología moderna para servir a la Verdadera Fe y apoyar a nuestro clergé y fieles.",
+    websiteStatus: "Estado: en progreso",
+    websiteViewLink: "Ver aquí",
+    storeStatus: "Estado: en progreso",
+    storeViewLink: "Ver aquí",
+    aiChatStatus: "Estado: planificado",
+    socialStatus: "Estado: planificado",
 
     websiteTitle: "Sitio Web",
     websiteDesc1: "Plataforma personalizada construida con tecnología moderna",
@@ -212,7 +228,6 @@ const translations: Record<Language, Record<string, string>> = {
     fundingTitle: "Ayúdanos a Construir Esta Misión",
     fundingIntro:
       "Esta misión solo puede avanzar gracias a la generosidad de los fieles. Puede apoyarnos con una donación única hoy y, si lo desea, convertirse en un donante mensual en el futuro. Cada contribución—grande o pequeña—construye y sostiene directamente este apostolado digital.",
-
     setupCosts: "Costos de Instalación",
     phase1SetupCosts: "Fase 1: Costos de Instalación",
     setupCostsDesc:
@@ -270,6 +285,12 @@ const translations: Record<Language, Record<string, string>> = {
     digitalStructureTitle: "Notre Future Structure Numérique",
     digitalStructureIntro:
       "Nous construisons une présence numérique moderne et unifiée pour renforcer nos communautés dans le monde entier. Chaque composant sera construit avec soin, en utilisant une technologie moderne pour servir la Vraie Foi et soutenir notre clergé et nos fidèles.",
+    websiteStatus: "Statut: en cours",
+    websiteViewLink: "Voir ici",
+    storeStatus: "Statut: en cours",
+    storeViewLink: "Voir ici",
+    aiChatStatus: "Statut: prévu",
+    socialStatus: "Statut: prévu",
 
     websiteTitle: "Site Web",
     websiteDesc1: "Plateforme personnalisée construite avec une technologie moderne",
@@ -296,7 +317,6 @@ const translations: Record<Language, Record<string, string>> = {
     fundingTitle: "Aidez-nous à Construire Cette Mission",
     fundingIntro:
       "Cette mission ne peut avancer que grâce à la générosité des fidèles. Vous pouvez nous soutenir avec un don unique aujourd'hui et, si vous le souhaitez, devenir un donateur mensuel à l'avenir. Chaque contribution—grande ou petite—construit et soutient directamente cet apostolat numérique.",
-
     setupCosts: "Coûts d'Installation",
     phase1SetupCosts: "Phase 1: Coûts d'Installation",
     setupCostsDesc:

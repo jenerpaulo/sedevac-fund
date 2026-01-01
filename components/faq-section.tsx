@@ -23,7 +23,7 @@ export function FaqSection() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-stone-200 to-stone-300">
+    <section className="py-24 px-4 bg-gradient-to-b from-stone-300 to-stone-400">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-burgundy-800 mb-12 animate-fade-in-up text-balance">
           {t("faqTitle")}

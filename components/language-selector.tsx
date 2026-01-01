@@ -12,7 +12,7 @@ const languages: { code: Language; name: string; flag: string }[] = [
   { code: "fr", name: "Français", flag: "🇫🇷" },
 ]
 
-export function LanguageSelector({ variant = "default" }: { variant?: "default" | "footer" }) {
+export function LanguageSelector({ variant = "default" as "default" | "footer" }: { variant?: "default" | "footer" }) {
   const { language, setLanguage } = useLanguage()
   const currentLang = languages.find((l) => l.code === language)
 
@@ -24,7 +24,7 @@ export function LanguageSelector({ variant = "default" }: { variant?: "default" 
           className={
             variant === "footer"
               ? "text-gold-300 hover:text-gold-200 hover:bg-burgundy-800 border-gold-600/30"
-              : "bg-background/10 backdrop-blur-sm border-gold-500/50 text-gold-300 hover:text-gold-200 hover:bg-background/20 gap-2"
+              : "bg-background/10 backdrop-blur-sm border-burgundy-700/50 text-burgundy-900 hover:text-burgundy-950 hover:bg-background/20 gap-2"
           }
         >
           <span className="text-xl">{currentLang?.flag}</span>

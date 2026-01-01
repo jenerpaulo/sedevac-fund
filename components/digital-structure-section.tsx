@@ -11,21 +11,29 @@ export function DigitalStructureSection() {
       icon: Globe,
       title: t("websiteTitle"),
       descriptions: [t("websiteDesc1"), t("websiteDesc2"), t("websiteDesc3")],
+      status: t("websiteStatus"),
+      viewLink: t("websiteViewLink"),
+      url: "https://www.sedevacante.online",
     },
     {
       icon: ShoppingCart,
       title: t("storeTitle"),
       descriptions: [t("storeDesc1"), t("storeDesc2"), t("storeDesc3")],
+      status: t("storeStatus"),
+      viewLink: t("storeViewLink"),
+      url: "https://www.sedevacante.online/store",
     },
     {
       icon: MessageSquare,
       title: t("aiChatTitle"),
       descriptions: [t("aiChatDesc1"), t("aiChatDesc2"), t("aiChatDesc3")],
+      status: t("aiChatStatus"),
     },
     {
       icon: Share2,
       title: t("socialTitle"),
       descriptions: [t("socialDesc1"), t("socialDesc2")],
+      status: t("socialStatus"),
     },
   ]
 
@@ -43,23 +51,39 @@ export function DigitalStructureSection() {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="bg-white border border-burgundy-600/20 rounded-lg p-8 hover:border-burgundy-600/40 hover:shadow-lg hover:shadow-burgundy-900/10 transition-all duration-300 animate-fade-in-up"
+              className="bg-white border border-burgundy-600/20 rounded-lg p-8 hover:border-burgundy-600/40 hover:shadow-lg hover:shadow-burgundy-900/10 transition-all duration-300 animate-fade-in-up flex flex-col"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-burgundy-700 rounded-lg">
-                  <feature.icon className="h-8 w-8 text-gold-300" />
+              <div>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 bg-burgundy-700 rounded-lg">
+                    <feature.icon className="h-8 w-8 text-gold-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-burgundy-800">{feature.title}</h3>
                 </div>
-                <h3 className="text-xl font-semibold text-burgundy-800">{feature.title}</h3>
+                <ul className="space-y-3">
+                  {feature.descriptions.map((desc, i) => (
+                    <li key={i} className="flex items-start gap-3 text-stone-700">
+                      <span className="text-burgundy-600 mt-1">•</span>
+                      <span>{desc}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {feature.descriptions.map((desc, i) => (
-                  <li key={i} className="flex items-start gap-3 text-stone-700">
-                    <span className="text-burgundy-600 mt-1">•</span>
-                    <span>{desc}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-6 pt-6 border-t border-burgundy-600/10">
+                {feature.url ? (
+                  <a
+                    href={feature.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-burgundy-700 hover:text-burgundy-900 transition-colors"
+                  >
+                    {feature.status} | <span className="underline">{feature.viewLink}</span>
+                  </a>
+                ) : (
+                  <p className="text-sm text-stone-600">{feature.status}</p>
+                )}
+              </div>
             </div>
           ))}
         </div>
