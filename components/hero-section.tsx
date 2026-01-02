@@ -10,16 +10,7 @@ export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  // Replace video URLs here when you have videos for other languages
-  const videoMap: Record<string, string> = {
-    en: "/videos/videoenglish.mp4", // English video
-    pt: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4",
-    es: "/videos/videospanish.mp4", // Spanish video
-    fr: "/videos/videofrench.mp4", // French video
-  }
-
-  const currentLanguage = useLanguage().language
-  const videoSrc = videoMap[currentLanguage] || videoMap.pt
+  const videoSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4"
 
   const handlePlayClick = () => {
     if (videoRef.current) {
@@ -69,20 +60,22 @@ export function HeroSection() {
               <div className="relative group cursor-pointer" onClick={handlePlayClick}>
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
                 {!isPlaying && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10 group-hover:bg-black/20 transition-colors rounded-3xl pointer-events-auto">
-                    <Play className="w-16 h-16 text-white fill-white opacity-80 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-4 right-4 z-10 group-hover:scale-110 transition-transform rounded-full pointer-events-none">
+                    <div className="bg-white/70 hover:bg-white p-2 rounded-full">
+                      <Play className="w-5 h-5 text-burgundy-950 fill-burgundy-950" />
+                    </div>
                   </div>
                 )}
                 <video
                   ref={videoRef}
-                  src={videoSrc}
-                  className="relative aspect-video rounded-3xl shadow-2xl overflow-hidden w-full"
+                  className="relative aspect-video rounded-3xl shadow-2xl overflow-hidden w-full cursor-pointer"
                   controls
                   controlsList="nodownload"
                   poster="/images/video-poster.jpg"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                 >
+                  <source src={videoSrc} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
