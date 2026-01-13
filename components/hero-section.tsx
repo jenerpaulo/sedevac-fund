@@ -2,11 +2,9 @@
 
 import { useLanguage } from "./language-context"
 import { LanguageSelector } from "./language-selector"
-import { useRef } from "react"
 
 export function HeroSection() {
   const { language, t } = useLanguage()
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const getVideoSource = () => {
     switch (language) {
@@ -15,13 +13,11 @@ export function HeroSection() {
       case "fr":
         return "/videos/bispo-fr.mp4"
       case "en":
-      case "es": // Spanish uses English version
+      case "es":
       default:
         return "/videos/bispo-eng.mp4"
     }
   }
-
-  const videoSrc = getVideoSource()
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
@@ -32,7 +28,7 @@ export function HeroSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Left Column - Video Placeholder */}
+          {/* Left Column - Video */}
           <div className="flex justify-center md:justify-start">
             <div className="flex flex-col w-full max-w-2xl">
               <div className="flex items-center justify-center md:justify-start gap-4 mb-8">
@@ -43,15 +39,19 @@ export function HeroSection() {
                 <div className="hidden md:block flex-1 border-t border-stone-400"></div>
               </div>
 
-              <video
-                ref={videoRef}
-                className="rounded-3xl shadow-2xl overflow-hidden w-full bg-black"
-                controls
-                poster="/images/video-poster.jpg"
-              >
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="w-full aspect-video bg-black rounded-3xl shadow-2xl overflow-hidden">
+                <video
+                  key={language}
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="metadata"
+                  poster="/images/video-poster.jpg"
+                  playsInline
+                >
+                  <source src={getVideoSource()} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
 
