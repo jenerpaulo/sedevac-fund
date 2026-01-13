@@ -2,7 +2,6 @@
 
 import { useLanguage } from "./language-context"
 import { LanguageSelector } from "./language-selector"
-import { Globe } from "lucide-react"
 import { useRef } from "react"
 
 export function HeroSection() {
@@ -26,8 +25,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
-      {/* Background watermark - subtle globe pattern at very low opacity */}
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Language selector */}
         <div className="absolute -top-20 right-6 z-20">
@@ -48,9 +45,8 @@ export function HeroSection() {
 
               <video
                 ref={videoRef}
-                className="rounded-3xl shadow-2xl overflow-hidden w-full"
+                className="rounded-3xl shadow-2xl overflow-hidden w-full bg-black"
                 controls
-                controlsList="nodownload"
                 poster="/images/video-poster.jpg"
               >
                 <source src={videoSrc} type="video/mp4" />
@@ -75,12 +71,6 @@ export function HeroSection() {
               <p className="text-lg md:text-xl text-stone-700 leading-relaxed max-w-lg tracking-wide">
                 {t("heroDescription")}
               </p>
-
-              <div className="mt-12 flex items-center gap-3 opacity-40">
-                <div className="w-1 h-1 bg-stone-500 rounded-full"></div>
-                <Globe className="w-5 h-5 text-stone-600 stroke-1" />
-                <div className="w-1 h-1 bg-stone-500 rounded-full"></div>
-              </div>
             </div>
           </div>
         </div>
