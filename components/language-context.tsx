@@ -94,7 +94,8 @@ const translations: Record<Language, Record<string, string>> = {
       "We believe that only the traditional Catholic position — especially the sedevacante understanding — provides clarity and peace in today's crisis within the Church. Our communities urgently need a strong digital presence to unify the faithful, protect our clergy from unjust attacks, and offer guidance to those still confused by modernist errors. This project is meant to be both a shield and a light.",
     faq3Question: "How can I get help?",
     faq3Answer:
-      "For help in English:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nFor help in Spanish or Portuguese:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+      "For help in English:\n• Email: Jener@duobro.com.br\n• WhatsApp: +1 (786) 414-2643\n\nFor help in Spanish or Portuguese:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+    copyright: "Copyright © 2026 FundSedevacante",
   },
   pt: {
     // Hero
@@ -177,7 +178,8 @@ const translations: Record<Language, Record<string, string>> = {
       "Acreditamos que apenas a posição católica tradicional — especialmente o entendimento sedevacantista — oferece clareza e paz na crise atual da Igreja. Nossas comunidades precisam urgentemente de uma forte presença digital para unificar os fiéis, proteger nosso clergé de ataques injustos e oferecer orientação aos ainda confusos com erros modernistas. Este projeto visa ser tanto um escudo quanto uma luz.",
     faq3Question: "Como posso obter ajuda?",
     faq3Answer:
-      "Para ajuda em inglês:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPara ajuda em espanhol ou português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+      "Para ajuda em inglês:\n• Email: Jener@duobro.com.br\n• WhatsApp: +1 (786) 414-2643\n\nPara ajuda em espanhol ou português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+    copyright: "Copyright © 2026 FundSedevacante",
   },
   es: {
     // Hero
@@ -260,7 +262,8 @@ const translations: Record<Language, Record<string, string>> = {
       "Creemos que solo la posición católica tradicional — especialmente el entendimiento sedevacantista — proporciona clareza y paz en la crisis actual de la Iglesia. Nuestras comunidades necesitan urgentemente una fuerte presencia digital para unificar a los fieles, proteger a nuestro clergé de ataques injustos y ofrecer orientación a aquellos aún confundidos por los errores modernistas. Este proyecto es diseñado para ser tanto un escudo como una luz.",
     faq3Question: "¿Cómo puedo obtener ayuda?",
     faq3Answer:
-      "Para ayuda en inglés:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPara ayuda en español o portugués:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+      "Para ayuda en inglés:\n• Email: Jener@duobro.com.br\n• WhatsApp: +1 (786) 414-2643\n\nPara ayuda en español o português:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+    copyright: "Copyright © 2026 FundSedevacante",
   },
   fr: {
     // Hero
@@ -345,7 +348,8 @@ const translations: Record<Language, Record<string, string>> = {
       "Nous croyons que seule la position catholique traditionnelle — surtout l'entendement sedevacantiste — offre clarté et paix dans la crise actuelle de l'Église. Nos communautés ont besoin urgent d'une présence numérique forte pour unifier les fidèles, protéger notre clergé des attaques injustes et offrir des conseils aux ceux qui sont encore confus par les erreurs modernistes. Ce projet est destiné à être à la fois un bouclier et une lumière.",
     faq3Question: "Comment puis-je obtenir de l'aide?",
     faq3Answer:
-      "Pour l'aide en anglais:\n• Email: Jener@duobro.com\n• WhatsApp: +1 (786) 414-2643\n\nPour l'aide en espagnol ou en portugais:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+      "Pour l'aide en anglais:\n• Email: Jener@duobro.com.br\n• WhatsApp: +1 (786) 414-2643\n\nPour l'aide en espagnol ou en portugais:\n• Email: Jones@duobro.com.br\n• WhatsApp: +55 11 96583-6064",
+    copyright: "Copyright © 2026 FundSedevacante",
   },
 }
 

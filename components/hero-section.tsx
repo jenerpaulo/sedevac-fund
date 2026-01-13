@@ -6,20 +6,33 @@ import { Globe, Play } from "lucide-react"
 import { useRef, useState } from "react"
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  const videoSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4"
+  const getVideoSource = () => {
+    switch (language) {
+      case "pt":
+        return "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4"
+      case "fr":
+        return "/videos/bispo-fr.mp4"
+      case "en":
+      case "es": // Spanish uses English version
+      default:
+        return "/videos/bispo-eng.mp4"
+    }
+  }
+
+  const videoSrc = getVideoSource()
 
   const handlePlayClick = () => {
     if (videoRef.current) {
       if (videoRef.current.paused) {
-        videoRef.current.play()
-        setIsPlaying(true)
+        videoRef.current.play().catch(() => {
+          // Silently catch abort errors from play/pause conflicts
+        })
       } else {
         videoRef.current.pause()
-        setIsPlaying(false)
       }
     }
   }
@@ -27,17 +40,6 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
       {/* Background watermark - subtle globe pattern at very low opacity */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-stone-700">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.3" />
-            <path d="M 30 50 Q 50 30, 70 50" fill="none" stroke="currentColor" strokeWidth="0.3" />
-            <path d="M 30 50 Q 50 70, 70 50" fill="none" stroke="currentColor" strokeWidth="0.3" />
-            <line x1="50" y1="10" x2="50" y2="90" stroke="currentColor" strokeWidth="0.3" />
-          </svg>
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Language selector */}
