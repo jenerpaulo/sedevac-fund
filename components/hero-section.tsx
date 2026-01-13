@@ -46,19 +46,16 @@ export function HeroSection() {
                 <div className="hidden md:block flex-1 border-t border-stone-400"></div>
               </div>
 
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-                <video
-                  ref={videoRef}
-                  className="relative aspect-video rounded-3xl shadow-2xl overflow-hidden w-full"
-                  controls
-                  controlsList="nodownload"
-                  poster="/images/video-poster.jpg"
-                >
-                  <source src={videoSrc} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              <video
+                ref={videoRef}
+                className="rounded-3xl shadow-2xl overflow-hidden w-full"
+                controls
+                controlsList="nodownload"
+                poster="/images/video-poster.jpg"
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
 
