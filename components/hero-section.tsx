@@ -2,22 +2,60 @@
 
 import { useLanguage } from "./language-context"
 import { LanguageSelector } from "./language-selector"
+import { useEffect, useRef } from "react"
 
 export function HeroSection() {
   const { language, t } = useLanguage()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const getVideoSource = () => {
     switch (language) {
       case "pt":
-        return "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videobishop-OnLmzlvoCCYIxeax3SVli4NNc9aUMr.mp4"
+        return "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bispo-pt-6WJ2kRXHpgTK05paJVMGFvJWgpwLiL.mp4"
       case "fr":
-        return "/videos/bispo-fr.mp4"
+        return "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bispo-fr-uDTevOXVsS4T10z3w9Pem7caNiCzDF.mp4"
       case "en":
       case "es":
       default:
-        return "/videos/bispo-eng.mp4"
+        return "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bispo-eng-jF4aWIrz8uFIFehxcPpoH5hAaaM8gY.mp4"
     }
   }
+
+  useEffect(() => {
+    if (videoRef.current) {
+      console.log("[v0] Loading video for language:", language, "Source:", getVideoSource())
+
+      const video = videoRef.current
+
+      const handleCanPlay = () => {
+        console.log("[v0] Video can play:", getVideoSource())
+      }
+
+      const handleError = (e: Event) => {
+        console.error("[v0] Video error:", e)
+        if (video.error) {
+          console.error("[v0] Video error code:", video.error.code)
+          console.error("[v0] Video error message:", video.error.message)
+        }
+      }
+
+      const handleLoadedMetadata = () => {
+        console.log("[v0] Video metadata loaded:", getVideoSource())
+      }
+
+      video.addEventListener("canplay", handleCanPlay)
+      video.addEventListener("error", handleError)
+      video.addEventListener("loadedmetadata", handleLoadedMetadata)
+
+      video.load()
+
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay)
+        video.removeEventListener("error", handleError)
+        video.removeEventListener("loadedmetadata", handleLoadedMetadata)
+      }
+    }
+  }, [language])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-24 px-4 md:px-6 bg-gradient-to-b from-stone-100 to-stone-100">
@@ -41,14 +79,14 @@ export function HeroSection() {
 
               <div className="w-full aspect-video bg-black rounded-3xl shadow-2xl overflow-hidden">
                 <video
-                  key={language}
+                  ref={videoRef}
                   className="w-full h-full object-cover"
                   controls
                   preload="metadata"
                   poster="/images/video-poster.jpg"
                   playsInline
                 >
-                  <source src={getVideoSource()} type="video/mp4" />
+                  <source key={getVideoSource()} src={getVideoSource()} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
