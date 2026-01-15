@@ -40,7 +40,7 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
     const monthlyPrices = STRIPE_PRICE_IDS.monthly[currency]
     priceId = monthlyPrices[amount as 25 | 50 | 100] || ""
   } else {
-    priceId = STRIPE_PRICE_IDS.oneTime[currency]
+    priceId = "" // Never use the generic one-time price for one-time donations
   }
 
   console.log(
@@ -76,24 +76,6 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
         currency: currency,
       },
     }
-  } else if (!isMonthly && priceId) {
-    sessionConfig = {
-      ui_mode: "embedded",
-      redirect_on_completion: "never",
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      mode: "payment",
-      metadata: {
-        project: "sedevacante-donations",
-        donation_type: "one_time",
-        amount: amount.toString(),
-        currency: currency,
-      },
-    }
   } else {
     sessionConfig = {
       ui_mode: "embedded",
@@ -113,7 +95,7 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
                     type: "donation",
                   },
                 },
-            unit_amount: Math.max(1, Math.round(amountInCents)), // Ensure unit_amount is always a valid positive number
+            unit_amount: Math.max(1, Math.round(amountInCents)),
           },
           quantity: 1,
         },
