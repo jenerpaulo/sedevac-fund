@@ -231,7 +231,11 @@ function DonationForm({
             <Button
               key={curr}
               variant={currency === curr ? "default" : "outline"}
-              onClick={() => setCurrency(curr)}
+              onClick={() => {
+                setCurrency(curr)
+                setSelectedAmount(null)
+                setCustomAmount("")
+              }}
               className={
                 currency === curr
                   ? "bg-burgundy-700 text-white hover:bg-burgundy-800"

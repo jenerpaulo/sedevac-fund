@@ -37,13 +37,24 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
   let priceId: string | undefined
 
   if (isMonthly) {
-    // For monthly, use the specific amount price ID
     const monthlyPrices = STRIPE_PRICE_IDS.monthly[currency]
     priceId = monthlyPrices[amount as 25 | 50 | 100] || ""
   } else {
-    // For one-time, use the dynamic price (user can enter any amount)
     priceId = STRIPE_PRICE_IDS.oneTime[currency]
   }
+
+  console.log(
+    "[v0] Donation checkout - amount:",
+    amount,
+    "amountInCents:",
+    amountInCents,
+    "currency:",
+    currency,
+    "isMonthly:",
+    isMonthly,
+    "priceId:",
+    priceId,
+  )
 
   let sessionConfig: Parameters<typeof stripe.checkout.sessions.create>[0]
 
@@ -58,9 +69,32 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
         },
       ],
       mode: "subscription",
+      metadata: {
+        project: "sedevacante-donations",
+        donation_type: "monthly_recurring",
+        amount: amount.toString(),
+        currency: currency,
+      },
+    }
+  } else if (!isMonthly && priceId) {
+    sessionConfig = {
+      ui_mode: "embedded",
+      redirect_on_completion: "never",
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      mode: "payment",
+      metadata: {
+        project: "sedevacante-donations",
+        donation_type: "one_time",
+        amount: amount.toString(),
+        currency: currency,
+      },
     }
   } else {
-    // For one-time donations, create dynamic price
     sessionConfig = {
       ui_mode: "embedded",
       redirect_on_completion: "never",
@@ -72,19 +106,31 @@ export async function startDonationCheckout(amount: number, currency: "usd" | "e
             product_data: STRIPE_PRODUCT_ID
               ? undefined
               : {
-                  name: "One-Time Donation - CatholicVacante",
-                  description: "One-time donation to support the CatholicVacante mission",
+                  name: "Doação Única - Sedevacante",
+                  description: "Doação única para apoiar a missão Sedevacante e construir presença digital católica",
+                  metadata: {
+                    project: "sedevacante-donations",
+                    type: "donation",
+                  },
                 },
-            unit_amount: amountInCents,
+            unit_amount: Math.max(1, Math.round(amountInCents)), // Ensure unit_amount is always a valid positive number
           },
           quantity: 1,
         },
       ],
       mode: "payment",
+      metadata: {
+        project: "sedevacante-donations",
+        donation_type: "one_time",
+        amount: amount.toString(),
+        currency: currency,
+      },
     }
   }
 
   const session = await stripe.checkout.sessions.create(sessionConfig)
+
+  console.log("[v0] Session created with client_secret:", session.client_secret ? "✓" : "✗")
 
   return session.client_secret!
 }
